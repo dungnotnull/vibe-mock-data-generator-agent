@@ -16,7 +16,6 @@
 <p align="center">
   <strong>📦 Schema-Driven</strong> •
   <strong>🔗 FK-Safe</strong> •
-  <strong>🇻🇳 Vietnamese-Native</strong> •
   <strong>🎯 Deterministic</strong> •
   <strong>📁 6 Output Formats</strong> •
   <strong>🍃 MongoDB Ready</strong>
