@@ -1,4 +1,4 @@
-# 🇻🇳 vibe-mock-data-generator-agent
+<h1 align="center">vibe-mock-data-generator-agent</h1>
 
 > Generate realistic, referentially-valid mock data from database schemas — with first-class Vietnamese market support.
 
@@ -465,9 +465,5 @@ MIT
 <p align="center">
 
 Built with ❤️ for Vietnamese Developers
-
-<br><br>
-
-Production-like Mock Data • Schema-Driven • MongoDB Ready
 
 </p>
