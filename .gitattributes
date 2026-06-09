@@ -1,0 +1,51 @@
+﻿# Auto detect text files and normalize line endings to LF
+* text=auto eol=lf
+
+# TypeScript / JavaScript
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+
+# Config / Data
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+
+# Web / Docs
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+
+# Shell
+*.sh text eol=lf
+
+# Prisma
+*.prisma text eol=lf
+
+# SQL
+*.sql text eol=lf
+
+# Env files
+*.env text eol=lf
+*.env.example text eol=lf
+.env text eol=lf
+
+# Binary files (don't touch)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.tar binary
