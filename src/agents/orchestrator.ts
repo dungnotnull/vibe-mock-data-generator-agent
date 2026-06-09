@@ -25,7 +25,7 @@ import { buildDependencyGraph, generateSelfReferentialStrategy } from './depende
 import { assignStrategies } from './strategy-planner/index.js';
 import { generateFakerValue, resetUniqueTracker, pickFkValue, injectEdgeCases, validateIntegrity } from './data-generator/index.js';
 import { weightedRandom, assignActivityLevel, orderCountByLevel, generateRealisticTimestamp, logNormalPrice, exponentialQuantity } from './data-generator/index.js';
-import { formatPrismaSeed, formatSQLInserts, formatJSONFixtures, formatAllCSV, formatFactoryFunctions } from './output-formatter/index.js';
+import { formatPrismaSeed, formatSQLInserts, formatJSONFixtures, formatAllCSV, formatFactoryFunctions, formatMongoDBSeed } from './output-formatter/index.js';
 import { OllamaClient } from '../ml/ollama-client.js';
 import { LLMClient } from '../tools/llm-client.js';
 import { parseConfig, getDefaultConfig } from '../tools/config-parser.js';
@@ -144,8 +144,15 @@ export class Orchestrator {
         const sqlText = await readFile(schemaPath, 'utf-8');
         return parseDDLSchema(sqlText);
       }
+      case 'mongodb': {
+        // For MongoDB, parse the schema file as JSON (MongoDB schema definition or JSON Schema)
+        const { readFile } = await import('fs/promises');
+        const { parseJSONSchemaSchema } = await import('./schema-parser/jsonschema-parser.js');
+        const jsonText = await readFile(schemaPath, 'utf-8');
+        return parseJSONSchemaSchema(jsonText);
+      }
       default:
-        throw new Error('Unsupported schema type: ' + schemaType + '. Supported: prisma, ddl');
+        throw new Error('Unsupported schema type: ' + schemaType + '. Supported: prisma, ddl, typeorm, jsonschema, mongodb');
     }
   }
 
@@ -442,6 +449,12 @@ export class Orchestrator {
           const content = formatFactoryFunctions(schema.entities, domain);
           await fs.writeFile(path.join(outputDir, 'factories.ts'), content, 'utf-8');
           console.log('  \u2713 Written: factories.ts');
+          break;
+        }
+        case 'mongodb': {
+          const content = formatMongoDBSeed(recordsMap, seedOrder);
+          await fs.writeFile(path.join(outputDir, 'seed-mongodb.ts'), content, 'utf-8');
+          console.log('  \u2713 Written: seed-mongodb.ts');
           break;
         }
       }

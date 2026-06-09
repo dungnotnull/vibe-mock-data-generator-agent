@@ -27,6 +27,8 @@ export { assignStrategies } from './agents/strategy-planner/index.js';
 export { OllamaClient } from './ml/ollama-client.js';
 export { LLMClient } from './tools/llm-client.js';
 export { parseConfig, getDefaultConfig, loadConfigFile } from './tools/config-parser.js';
+export { DBConnector } from './tools/db-connector.js';
+export type { DBConfig } from './tools/db-connector.js';
 export type { GeneratorConfig, NormalizedSchema, StrategyPlan, GenerationResult } from './types/index.js';
 
 // ─── CLI Helpers ───────────────────────────────────────────────────
@@ -76,11 +78,11 @@ function printHelp(): void {
   console.log('');
   console.log('Options:');
   console.log('  --schema <path>       Path to schema file (required unless --config)');
-  console.log('  --type <type>         Schema type: prisma | ddl | typeorm | jsonschema');
+  console.log('  --type <type>         Schema type: prisma | ddl | typeorm | jsonschema | mongodb');
   console.log('                        (auto-detected from file extension if omitted)');
   console.log('  --config <path>       Path to config YAML/JSON file');
   console.log('  --output <dir>        Output directory (default: ./generated)');
-  console.log('  --format <formats>    Output formats: prisma-seed,sql,json,csv,factory');
+  console.log('  --format <formats>    Output formats: prisma-seed,sql,json,csv,factory,mongodb');
   console.log('                        (comma-separated, default: prisma-seed,json)');
   console.log('  --seed <number>       Random seed for deterministic output');
   console.log('  --market <market>     Market: vietnam | global | us | eu');
@@ -93,6 +95,9 @@ function printHelp(): void {
   console.log('');
   console.log('  # Generate from SQL DDL, output SQL + JSON');
   console.log('  npx vibe-mock-data generate --schema ./schema.sql --format sql,json');
+  console.log('');
+  console.log('  # Generate MongoDB seed script');
+  console.log('  npx vibe-mock-data generate --schema ./schema.json --type mongodb --format mongodb,json');
   console.log('');
   console.log('  # Deterministic generation for CI/CD');
   console.log('  npx vibe-mock-data generate --schema ./schema.sql --seed 42');

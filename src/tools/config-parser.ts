@@ -41,12 +41,12 @@ const EntityConfigSchema = z.object({
 });
 
 const SchemaConfigSchema = z.object({
-  type: z.enum(['prisma', 'ddl', 'typeorm', 'jsonschema']),
+  type: z.enum(['prisma', 'ddl', 'typeorm', 'jsonschema', 'mongodb']),
   path: z.string(),
 });
 
 const OutputConfigSchema = z.object({
-  formats: z.array(z.enum(['prisma-seed', 'sql', 'json', 'csv', 'factory'])),
+  formats: z.array(z.enum(['prisma-seed', 'sql', 'json', 'csv', 'factory', 'mongodb'])),
   directory: z.string(),
   prettify: z.boolean().optional().default(true),
 });

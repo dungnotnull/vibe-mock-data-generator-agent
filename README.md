@@ -1,25 +1,27 @@
 ﻿# vibe-mock-data-generator-agent
 
-> **Generate realistic, referentially valid test data from database schemas -- with Vietnamese data specialization.**
+> **Generate realistic, referentially valid test data from database schemas — with Vietnamese data specialization.**
 
 <p align="center">
   <strong>Schema-Driven</strong> &bull;
   <strong>FK-Safe</strong> &bull;
   <strong>Vietnamese-Native</strong> &bull;
   <strong>Deterministic</strong> &bull;
-  <strong>5 Output Formats</strong>
+  <strong>6 Output Formats</strong> &bull;
+  <strong>NoSQL Support</strong>
 </p>
 
 ---
 
 ## The Problem
 
-Most test data tools generate `user@user.com` and `User1`. This one generates `nguyen.thi.bich.phuong@example.com` and `Nguyen Thi Bich Phuong` -- because production bugs hide in cultural edge cases.
+Most test data tools generate user@user.com and User1. This one generates 
+guyen.thi.bich.phuong@example.com and Nguyễn Thị Bích Phương — because production bugs hide in cultural edge cases.
 
-`
+`js
 // What most tools seed:                   // What this tool seeds:
 {                                           {
-  name: "User 1",                             name: "Nguyen Thi Bich Phuong",
+  name: "User 1",                             name: "Nguyễn Thị Bích Phương",
   email: "user1@test.com",                    email: "nguyen.thi.bich.phuong@example.com",
   phone: "1234567890",                        phone: "0912345678",
   role: "user"                                role: "CUSTOMER"
@@ -32,14 +34,15 @@ Most test data tools generate `user@user.com` and `User1`. This one generates `n
 
 | | Feature | Description |
 |---|---------|-------------|
-| :card_file_box: | **Schema-Driven** | Parse Prisma, SQL DDL, TypeORM, JSON Schema -- auto-generate matching test data |
+| :card_file_box: | **Schema-Driven** | Parse Prisma, SQL DDL, TypeORM, JSON Schema, MongoDB — auto-generate matching test data |
 | :link: | **Referential Integrity Guaranteed** | All foreign keys point to existing records, 0 FK violations |
 | :flag_vn: | **Vietnamese-Native** | Weighted Vietnamese names, phones, addresses, CCCD IDs, VND prices |
 | :chart_with_upwards_trend: | **Statistical Distributions** | Pareto (80/20), business hours clustering, order status state machines |
 | :test_tube: | **Edge Case Injection** | 5% of records include unicode, max-length, boundary, and null edge cases |
-| :file_folder: | **5 Output Formats** | Prisma seed, SQL INSERT, JSON fixtures, CSV, TypeScript factory functions |
-| :key: | **Deterministic Mode** | `--seed 42` produces identical output for CI/CD |
+| :file_folder: | **6 Output Formats** | Prisma seed, SQL INSERT, JSON fixtures, CSV, TypeScript factory functions, MongoDB seed |
+| :key: | **Deterministic Mode** | --seed 42 produces identical output for CI/CD |
 | :robot: | **Ollama Integration** | Local SLM for realistic Vietnamese text (with Faker fallback) |
+| :leaves: | **NoSQL / MongoDB** | Full MongoDB support — output seed scripts or seed directly via the MongoDB driver |
 
 ---
 
@@ -56,7 +59,10 @@ npm run build
 node dist/index.js --schema ./schema.sql --type ddl --output ./generated --format json
 
 # With Vietnamese market defaults + all formats
-node dist/index.js --schema ./schema.sql --type ddl --format prisma-seed,sql,json,csv,factory
+node dist/index.js --schema ./schema.sql --type ddl --format prisma-seed,sql,json,csv,factory,mongodb
+
+# Generate MongoDB seed script
+node dist/index.js --schema ./schema.json --type mongodb --format mongodb
 
 # Quick mode (JSON only, 100 records per entity)
 node dist/index.js --schema ./schema.sql --type ddl --quick
@@ -71,24 +77,24 @@ node dist/index.js --schema ./schema.sql --type ddl --seed 42
 
 | Flag | Description | Default |
 |------|-------------|---------|
-| `--schema <path>` | Path to schema file | Required |
-| `--type <type>` | Schema type: `prisma`, `ddl`, `typeorm`, `jsonschema` | Auto-detected from extension |
-| `--config <path>` | Path to config YAML/JSON file | -- |
-| `--output <dir>` | Output directory | `./generated` |
-| `--format <fmts>` | Output formats (comma-separated) | `prisma-seed,json` |
-| `--seed <num>` | Random seed for deterministic output | -- |
-| `--market <mkt>` | Market: `vietnam`, `global`, `us`, `eu` | `vietnam` |
-| `--quick` | Quick mode: JSON only, 100 records | -- |
-| `--help` | Show help message | -- |
+| --schema <path> | Path to schema file | Required |
+| --type <type> | Schema type: prisma, ddl, 	ypeorm, jsonschema, mongodb | Auto-detected from extension |
+| --config <path> | Path to config YAML/JSON file | — |
+| --output <dir> | Output directory | ./generated |
+| --format <fmts> | Output formats (comma-separated) | prisma-seed,json |
+| --seed <num> | Random seed for deterministic output | — |
+| --market <mkt> | Market: ietnam, global, us, eu | ietnam |
+| --quick | Quick mode: JSON only, 100 records | — |
+| --help | Show help message | — |
 
 ### Schema Type Auto-Detection
 
 | File Extension | Detected Type |
 |---------------|-------------|
-| `.prisma` | Prisma |
-| `.sql` | DDL |
-| `.ts` / `.js` | TypeORM |
-| `.json` | JSON Schema |
+| .prisma | Prisma |
+| .sql | DDL |
+| .ts / .js | TypeORM |
+| .json | JSON Schema / MongoDB |
 
 ---
 
@@ -96,11 +102,13 @@ node dist/index.js --schema ./schema.sql --type ddl --seed 42
 
 | Format | File | Use Case |
 |--------|------|----------|
-| `prisma-seed` | `seed.ts` | Run `npx prisma db seed` directly |
-| `sql` | `seed.sql` | Import into any SQL database |
-| `json` | `fixtures.json` | Use as Jest/Vitest fixtures |
-| `csv` | `<entity>.csv` | Excel/spreadsheet testing |
-| `factory` | `factories.ts` | Reusable TypeScript factory functions for test suites |
+| prisma-seed | seed.ts | Run 
+px prisma db seed directly |
+| sql | seed.sql | Import into any SQL database |
+| json | ixtures.json | Use as Jest/Vitest fixtures |
+| csv | <entity>.csv | Excel/spreadsheet testing |
+| actory | actories.ts | Reusable TypeScript factory functions for test suites |
+| mongodb | seed-mongodb.ts | MongoDB seed script using the mongodb driver |
 
 ### Example: Prisma Seed Output
 
@@ -123,10 +131,35 @@ async function main() {
   });
   // ...
 }
+`
 
-main()
-  .then(async () => { await prisma.(); })
-  .catch(async (e) => { console.error(e); await prisma.(); process.exit(1); });
+### Example: MongoDB Seed Output
+
+`	ypescript
+// @generated-mock-data -- DO NOT USE IN PRODUCTION
+// Target: MongoDB
+
+import { MongoClient } from 'mongodb';
+
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+const dbName = process.env.MONGODB_DB || 'mockdata';
+const client = new MongoClient(uri);
+
+async function main() {
+  await client.connect();
+  const db = client.db(dbName);
+
+  // Clean existing data (in reverse dependency order)
+  await db.collection('users').deleteMany({});
+  await db.collection('products').deleteMany({});
+
+  // Seed in dependency order
+  await db.collection('users').insertMany(
+    [{ _id: "5fb9220d-...", email: "XuanTam.Ly@example.com", ... }],
+    { ordered: false }
+  );
+  // ...
+}
 `
 
 ### Example: Factory Functions Output
@@ -135,7 +168,7 @@ main()
 export type User = {
   id: string;
   email: string;
-  full_name: string;
+  full_name: string | null;
   phone: string | null;
   role: string;
 };
@@ -160,18 +193,19 @@ export function createUsers(count: number, overrides = {}): User[] {
 
 ## Configuration
 
-Create `mock-data.config.yaml`:
+Create mock-data.config.yaml:
 
 `yaml
 version: "1.0"
 
 schema:
-  type: ddl
+  type: ddl          # prisma | ddl | typeorm | jsonschema | mongodb
   path: ./schema.sql
 
 output:
-  formats: [json, prisma-seed]
+  formats: [json, prisma-seed, mongodb]   # prisma-seed | sql | json | csv | factory | mongodb
   directory: ./generated
+  prettify: true
 
 generation:
   seed: 42                    # Deterministic output
@@ -211,6 +245,64 @@ node dist/index.js --config ./mock-data.config.yaml
 
 ---
 
+## Database Seeding (Direct)
+
+In addition to output formatters, you can seed data **directly** into a running database:
+
+| Database | Driver | Install |
+|----------|--------|---------|
+| PostgreSQL | pg | 
+pm install pg |
+| MySQL | mysql2 | 
+pm install mysql2 |
+| SQLite | etter-sqlite3 | 
+pm install better-sqlite3 |
+| MongoDB | mongodb | 
+pm install mongodb |
+
+### Usage
+
+`	ypescript
+import { DBConnector } from 'vibe-mock-data-generator-agent';
+
+// SQL database
+const sqlConnector = new DBConnector({
+  type: 'postgresql',
+  host: 'localhost',
+  port: 5432,
+  database: 'myapp_test',
+  user: 'postgres',
+  password: 'password',
+});
+
+// MongoDB
+const mongoConnector = new DBConnector({
+  type: 'mongodb',
+  host: 'localhost',
+  port: 27017,
+  database: 'myapp_test',
+  user: 'mongouser',
+  password: 'password',
+  mongodbOptions: {
+    authSource: 'admin',
+    replicaSet: 'rs0',
+  },
+});
+
+await connector.connect();
+const results = await connector.seed(data, seedOrder);
+await connector.disconnect();
+`
+
+**How MongoDB seeding works:**
+1. Drops collections in reverse dependency order
+2. Converts id fields to MongoDB _id for UUID primary keys
+3. Converts camelCase keys to snake_case collection/field names
+4. Uses insertMany with ordered: false for best performance (continues past duplicate errors)
+5. Reports duplicate key errors (E11000) as skipped records, not failures
+
+---
+
 ## Vietnamese Data
 
 Built-in data assets for the Vietnamese market:
@@ -225,11 +317,11 @@ Built-in data assets for the Vietnamese market:
 
 | Generator | Output Example |
 |-----------|---------------|
-| `generateVietnameseName()` | `Nguyen Thi Bich Phuong` |
-| `generateVietnamesePhone()` | `0912345678` |
-| `generateVietnameseAddress()` | `826 Vo Van Tan, Quan 5, Da Nang` |
-| `generateVietnameseCCCD()` | `996195775132` (12-digit, fake 900+ prefix) |
-| `generateVNDPrice('mid')` | `287000` (rounded to 1000 VND) |
+| generateVietnameseName() | Nguyễn Thị Bích Phương |
+| generateVietnamesePhone() |  912345678 |
+| generateVietnameseAddress() | 826 Vo Van Tan, Quan 5, Da Nang |
+| generateVietnameseCCCD() | 996195775132 (12-digit, fake 900+ prefix) |
+| generateVNDPrice('mid') | 287000 (rounded to 1000 VND) |
 
 ### Surname Distribution (Pareto-weighted)
 
@@ -248,7 +340,7 @@ Schema File
     |
     v
 +-------------------+
-| Schema Parser      |  Prisma / DDL / TypeORM / JSON Schema --> NormalizedSchema
+| Schema Parser      |  Prisma / DDL / TypeORM / JSON Schema / MongoDB --> NormalizedSchema
 +-------------------+
     |
     v
@@ -283,7 +375,7 @@ Schema File
     |
     v
 +-------------------+
-| Output Formatter   |  seed.ts / seed.sql / fixtures.json / *.csv / factories.ts
+| Output Formatter   |  seed.ts / seed.sql / fixtures.json / *.csv / factories.ts / seed-mongodb.ts
 +-------------------+
 `
 
@@ -295,11 +387,11 @@ Schema File
 src/
   agents/
     orchestrator.ts                # Main 8-step pipeline coordinator
-    schema-parser/                 # Prisma + SQL DDL + TypeORM + JSON Schema parsers
+    schema-parser/                 # Prisma + SQL DDL + TypeORM + JSON Schema + MongoDB parsers
     dependency-resolver/           # Kahn's algorithm topological sort
     strategy-planner/              # Per-field generation strategy with common enum defaults
     data-generator/                # Faker, distributions, edge cases, integrity validation
-    output-formatter/              # Prisma seed, SQL, JSON, CSV, factory formatters
+    output-formatter/              # Prisma seed, SQL, JSON, CSV, factory, MongoDB formatters
   ml/
     ollama-client.ts               # Local SLM with graceful Faker fallback
     text-generator.ts              # Vietnamese text generation prompts (with diacritics)
@@ -309,7 +401,7 @@ src/
   tools/
     config-parser.ts                # Zod-validated config with YAML/JSON file loading
     llm-client.ts                   # Anthropic API for domain detection (heuristic fallback)
-    db-connector.ts                 # Direct DB seeding: PostgreSQL / MySQL / SQLite (lazy-loaded)
+    db-connector.ts                 # Direct DB seeding: PostgreSQL / MySQL / SQLite / MongoDB (lazy-loaded)
   prompts/                          # Domain detection, Vietnamese text, edge case prompts
   index.ts                          # CLI entry point with shebang
 `
@@ -318,7 +410,7 @@ src/
 
 ## Statistical Distributions
 
-### Pareto (80/20) -- User Activity
+### Pareto (80/20) — User Activity
 
 | Tier | % of Users | Order Count |
 |------|-----------|-------------|
@@ -338,7 +430,7 @@ Timestamps cluster around Vietnamese e-commerce traffic patterns:
 
 ### Common Enum Defaults
 
-Fields named `status`, `role`, `type`, `priority`, `gender` automatically get sensible weighted defaults:
+Fields named status, ole, 	ype, priority, gender automatically get sensible weighted defaults:
 
 `
 role:     CUSTOMER (85%), ADMIN (10%), MODERATOR (5%)
@@ -372,11 +464,11 @@ gender:   MALE (49%), FEMALE (50%), OTHER (1%)
 
 All generated data is clearly fake and safe for open-source use:
 
-- :email: Email domains: `example.com`, `test.vn`, `mockdata.io` -- never real domains
+- :email: Email domains: example.com, 	est.vn, mockdata.io — never real domains
 - :phone: Phone numbers: use realistic VN prefixes but clearly fake subscriber numbers
-- :id: CCCD/ID: use `900-999` prefix range (outside valid province codes)
+- :id: CCCD/ID: use 900-999 prefix range (outside valid province codes)
 - :bank: Bank accounts: use test-mode formats documented by Vietnamese banks
-- :lock: All output files marked with `@generated-mock-data -- DO NOT USE IN PRODUCTION`
+- :lock: All output files marked with @generated-mock-data -- DO NOT USE IN PRODUCTION
 
 ---
 
@@ -403,13 +495,16 @@ npm start -- --schema ./schema.sql --type ddl
 | Layer | Technology |
 |-------|-----------|
 | Language | TypeScript (Node.js ESM) |
-| Structured Data | `@faker-js/faker` with `vi` locale |
+| Structured Data | @faker-js/faker with i locale |
 | Contextual Text | Ollama (local) with Faker fallback |
-| Schema Parsing (Prisma) | `@prisma/internals` DMMF |
+| Schema Parsing (Prisma) | @prisma/internals DMMF |
 | Schema Parsing (DDL) | Regex-based multi-dialect SQL parser |
+| Schema Parsing (MongoDB) | JSON Schema / MongoDB schema definitions |
 | Graph Algorithm | Kahn's algorithm (topological sort) |
 | Config Validation | Zod v4 |
-| Config Format | YAML (`js-yaml`) + JSON |
+| Config Format | YAML (js-yaml) + JSON |
+| DB Seeding (SQL) | pg, mysql2, etter-sqlite3 (lazy-loaded) |
+| DB Seeding (NoSQL) | mongodb (lazy-loaded) |
 
 ---
 

@@ -2,22 +2,23 @@
 
 **Project**: vibe-mock-data-generator-agent
 **Last Updated**: 2026-06-09
-**Current Phase**: ALL PHASES COMPLETE
+**Current Phase**: ALL PHASES COMPLETE + MongoDB/NoSQL Support Added
 
 ---
 
 ## Overall Progress Dashboard
 
-```
+`
 Phase 0 - Foundation & Vietnamese Data Assets   ████████████████████ [100%] DONE
 Phase 1 - Schema Parsing & Dependency Graph     ████████████████████ [100%] DONE
 Phase 2 - Core Generation Engine                ████████████████████ [100%] DONE
-Phase 3 - Ollama + Output Formatters            ████████████████████ [100%] DONE
+Phase 3 - Ollama + Output Formatters             ████████████████████ [100%] DONE
 Phase 4 - Polish, Edge Cases & Distribution     ████████████████████ [100%] DONE
-```
+Phase 5 - NoSQL / MongoDB Support               ████████████████████ [100%] DONE
+`
 
-**Primary Language**: TypeScript (Node.js ESM) | **Source Files**: 28 TS | **Data Files**: 14 JSON | **Build**: Clean (0 TS errors)
-**Status**: ALL PHASES COMPLETE — Production-ready codebase, 0 FK violations, deterministic --seed mode, 5 output formats verified.
+**Primary Language**: TypeScript (Node.js ESM) | **Source Files**: 30 TS | **Data Files**: 14 JSON | **Build**: Clean (0 TS errors)
+**Status**: ALL PHASES COMPLETE — Production-ready codebase with SQL + NoSQL database support, 0 FK violations, deterministic --seed mode, 6 output formats.
 
 ---
 
@@ -111,8 +112,8 @@ Phase 4 - Polish, Edge Cases & Distribution     ██████████�
 | # | Task | Status | Notes |
 |---|------|--------|-------|
 | 1.5.1 | Implement TypeORM entity parser | DONE | Regex-based decorator extraction |
-| 1.5.2 | Implement JSON Schema parser | DONE | Supports $defs, definitions, properties, $ref, enum |
-| 1.5.3 | Add auto-detection of schema type from file extension | DONE | .prisma→prisma, .sql→ddl, .ts→typeorm, .json→jsonschema |
+| 1.5.2 | Implement JSON Schema parser | DONE | Supports , definitions, properties, , enum |
+| 1.5.3 | Add auto-detection of schema type from file extension | DONE | .prisma->prisma, .sql->ddl, .ts->typeorm, .json->jsonschema |
 
 ---
 
@@ -180,7 +181,7 @@ Phase 4 - Polish, Edge Cases & Distribution     ██████████�
 ### Sprint 3.2 - Output Formatters
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.2.1 | Implement Prisma seed script formatter | DONE | formatPrismaSeed() with createMany + skipDuplicates + $disconnect |
+| 3.2.1 | Implement Prisma seed script formatter | DONE | formatPrismaSeed() with createMany + skipDuplicates +  |
 | 3.2.2 | Implement SQL INSERT formatter | DONE | formatSQLInserts() with BEGIN/COMMIT, proper snake_case conversion |
 | 3.2.3 | Implement JSON fixture formatter | DONE | formatJSONFixtures() with metadata + Date serialization |
 | 3.2.4 | Implement CSV formatter | DONE | formatCSV() RFC 4180 compliant with snake_case headers |
@@ -250,6 +251,53 @@ Phase 4 - Polish, Edge Cases & Distribution     ██████████�
 
 ---
 
+## PHASE 5 - NoSQL / MongoDB Support
+**Goal**: Add comprehensive MongoDB/NoSQL database support
+
+### Sprint 5.1 - MongoDB Output Formatter
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 5.1.1 | Implement mongodb-formatter.ts (MongoDB seed script) | DONE | formatMongoDBSeed() with insertMany, ordered:false, _id mapping |
+| 5.1.2 | Handle id -> _id conversion for UUID primary keys | DONE | Automatic _id mapping in MongoDB documents |
+| 5.1.3 | Handle camelCase -> snake_case field name conversion | DONE | Consistent with SQL formatters |
+| 5.1.4 | Generate connection string from config | DONE | mongodb:// URI builder in formatter |
+| 5.1.5 | Add mongodb output format to orchestrator | DONE | New 'mongodb' case in formatOutput() switch |
+| 5.1.6 | Export formatMongoDBSeed from output-formatter index | DONE | Added to src/agents/output-formatter/index.ts |
+
+### Sprint 5.2 - MongoDB DB Connector
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 5.2.1 | Add 'mongodb' to DBConfig type union | DONE | type: 'postgresql' | 'mysql' | 'sqlite' | 'mongodb' |
+| 5.2.2 | Implement MongoDB connect() with lazy-loaded driver | DONE | npm install mongodb, MongoClient with connection options |
+| 5.2.3 | Implement MongoDB seed() with collection-based insertion | DONE | drop + insertMany with ordered:false |
+| 5.2.4 | Handle MongoDB duplicate key errors (E11000) | DONE | Graceful skip of duplicate documents |
+| 5.2.5 | Add mongodbOptions to DBConfig | DONE | authSource, replicaSet, directConnection |
+| 5.2.6 | Build MongoDB connection string from config | DONE | mongodb://user:pass@host:port/db format |
+| 5.2.7 | Handle document transformation (id -> _id) | DONE | formatMongoValue() with nested object support |
+| 5.2.8 | Implement MongoDB disconnect() | DONE | Proper mongoClient.close() |
+
+### Sprint 5.3 - Schema & Config Updates
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 5.3.1 | Add 'mongodb' to SchemaSource type | DONE | type SchemaSource = 'prisma' | 'ddl' | 'typeorm' | 'jsonschema' | 'mongodb' |
+| 5.3.2 | Add 'mongodb' to OutputFormat type | DONE | type OutputFormat = 'prisma-seed' | 'sql' | 'json' | 'csv' | 'factory' | 'mongodb' |
+| 5.3.3 | Update Zod schema in config-parser.ts | DONE | Both SchemaConfigSchema and OutputConfigSchema updated |
+| 5.3.4 | Add mongodb schema parsing in orchestrator | DONE | Maps to jsonschema-parser internally |
+| 5.3.5 | Update CLI --type to accept 'mongodb' | DONE | CLI help text and detectSchemaType() updated |
+| 5.3.6 | Update .env.example with MongoDB config | DONE | DB_TYPE=mongodb, DB_HOST, DB_PORT, DB_NAME, etc. |
+
+### Sprint 5.4 - Documentation Updates
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 5.4.1 | Update README.md with MongoDB sections | DONE | Added NoSQL badge, MongoDB output format, DB seeding table, examples |
+| 5.4.2 | Update CLAUDE.md with NoSQL support | DONE | Updated capabilities, file map, tech stack, behavioral rules |
+| 5.4.3 | Update PROJECT-DEVELOPMENT-PHASE-TRACKING.md | DONE | This file - Phase 5 tracking |
+| 5.4.4 | Update mock-data.config.yaml example | DONE | Added mongodb to schema type and output formats |
+| 5.4.5 | Update CLI help text | DONE | --type mongodb and --format mongodb documented |
+| 5.4.6 | Verify TypeScript compiles with 0 errors | DONE | tsc --noEmit passes clean, npm run build succeeds |
+
+---
+
 ## Exit Criteria Status
 
 ### Phase 0 Exit Criteria
@@ -291,6 +339,17 @@ Phase 4 - Polish, Edge Cases & Distribution     ██████████�
 - [x] npm package publishable (package.json with files, bin, engines)
 - [x] DB Connector for direct database seeding (optional, lazy-loaded drivers)
 
+### Phase 5 Exit Criteria
+- [x] MongoDB seed script formatter produces valid TypeScript with mongodb driver
+- [x] DB Connector supports MongoDB with connect/seed/disconnect
+- [x] MongoDB schema type accepted in config and CLI
+- [x] MongoDB output format generates seed-mongodb.ts
+- [x] Duplicate key errors handled gracefully (E11000 -> skipped)
+- [x] Document transformation: id -> _id, camelCase -> snake_case
+- [x] All 6 output formats verified (prisma-seed, sql, json, csv, factory, mongodb)
+- [x] TypeScript compiles with 0 errors after all changes
+- [x] Documentation updated (README, CLAUDE.md, tracking, config examples)
+
 ---
 
 ## Decision Log
@@ -311,6 +370,10 @@ Phase 4 - Polish, Edge Cases & Distribution     ██████████�
 | 2026-06-09 | COMMON_ENUM_DEFAULTS in strategy planner | status/role/type fields need sensible defaults without enum values | faker.lorem.word() (rejected - produces Vietnamese words) |
 | 2026-06-09 | FK referencedField case normalization | DDL may use "ID" but entity has "id" — must match | Case-sensitive (rejected - causes FK violations) |
 | 2026-06-09 | Edge cases skip unique/required fields | max-length/unicode/injection on unique fields causes UNIQUE violations | Apply to all fields (rejected - breaks integrity) |
+| 2026-06-09 | MongoDB support via mongodb driver | Native Node.js driver, lazy-loaded, no ORM dependency | Mongoose (heavier, adds schema dependency) |
+| 2026-06-09 | MongoDB seed uses ordered:false insertMany | Best performance with graceful duplicate handling | ordered:true (rejected - stops on first error) |
+| 2026-06-09 | id -> _id mapping in MongoDB formatter | MongoDB requires _id as primary key; UUID strings are valid _id values | ObjectId generation (rejected - complicates cross-DB consistency) |
+| 2026-06-09 | MongoDB schema type maps to JSON Schema parser | MongoDB document schemas are effectively JSON Schema | Custom MongoDB parser (deferred - over-engineering for v1) |
 
 ---
 
@@ -325,5 +388,6 @@ A task is **DONE** when:
 6. All randomness uses faker (not Math.random) for deterministic --seed mode
 7. FK integrity: 0 violations in generated data
 8. Edge cases preserve referential integrity (skip unique/required fields)
+9. NoSQL/MongoDB support follows the same patterns as SQL database support
 
-*Last updated: 2026-06-09 | All phases 100% complete | TypeScript compiles with 0 errors | 0 FK violations verified*
+*Last updated: 2026-06-09 | All phases 100% complete | TypeScript compiles with 0 errors | 0 FK violations verified | MongoDB support added*

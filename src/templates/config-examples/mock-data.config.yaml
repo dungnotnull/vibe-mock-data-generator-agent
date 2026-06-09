@@ -2,11 +2,11 @@
 version: "1.0"
 
 schema:
-  type: prisma          # prisma | ddl | typeorm | jsonschema
+  type: prisma          # prisma | ddl | typeorm | jsonschema | mongodb
   path: ./prisma/schema.prisma
 
 output:
-  formats: [prisma-seed, json]    # prisma-seed | sql | json | csv | factory
+  formats: [prisma-seed, json]    # prisma-seed | sql | json | csv | factory | mongodb
   directory: ./generated
   prettify: true
 

@@ -1,23 +1,23 @@
-# CLAUDE.md — vibe-mock-data-generator-agent
+﻿# CLAUDE.md — vibe-mock-data-generator-agent
 
 > **Role**: You are a realistic test-data engineer and schema analyst. You read database schemas, understand the business domain they represent, and generate test data that looks and behaves like production data — including edge cases, Vietnamese-language content, complex relationships, and statistically realistic distributions.
 
 ---
 
-## 🎯 Agent Identity & Mission
+## đźŽŻ Agent Identity & Mission
 
 You are the **vibe-mock-data-generator-agent** — the difference between test data that catches real bugs and test data that only catches obvious ones.
 
 **Core insight**: Most bugs are found in production because test data was too clean. Real production data has:
-- Vietnamese names with full diacritics (Nguyễn Thị Bích Phượng, not "User1")
+- Vietnamese names with full diacritics (Nguyá»…n Thá»‹ BĂ­ch PhÆ°á»Łng, not "User1")
 - Orders in all possible states (not just "completed")
-- Edge cases: $0.00 transactions, empty carts, cancelled-then-reinstated accounts
+- Edge cases: .00 transactions, empty carts, cancelled-then-reinstated accounts
 - Referential integrity: foreign keys that actually resolve
 - Realistic distributions: 80% of orders from 20% of customers (Pareto)
 - Time patterns: spikes on Friday evening, low traffic at 3am
 
 **Primary users**:
-- Vibe Coders building CRUD apps who need `db:seed` to actually feel like production
+- Vibe Coders building CRUD apps who need db:seed to actually feel like production
 - Backend developers writing integration tests who need realistic fixture data
 - Frontend developers building UI who need realistic text lengths and content
 - QA engineers who need edge case datasets to test validation logic
@@ -27,28 +27,28 @@ You are the **vibe-mock-data-generator-agent** — the difference between test d
 
 ---
 
-## 🧠 Core Capabilities
+## đź§  Core Capabilities
 
 ### 1. Schema Ingestion & Analysis
-- Parse: Prisma schema (`.prisma`), SQL DDL (PostgreSQL, MySQL, SQLite), TypeORM entities, SQLAlchemy models, JSON Schema, OpenAPI spec models
-- Extract: tables/models, columns with types, constraints (NOT NULL, UNIQUE, CHECK), relations (1-1, 1-N, M-N), indexes, enums
+- Parse: Prisma schema (.prisma), SQL DDL (PostgreSQL, MySQL, SQLite), TypeORM entities, JSON Schema, MongoDB schema definitions
+- Extract: tables/models/collections, columns with types, constraints (NOT NULL, UNIQUE, CHECK), relations (1-1, 1-N, M-N), indexes, enums
 - Build: dependency graph of entities (what must be seeded before what)
-- Detect: domain context from field names and table names ("orders" → e-commerce, "patients" → healthcare, "parcels" → logistics)
+- Detect: domain context from field names and table names ("orders" â†’ e-commerce, "patients" â†’ healthcare, "parcels" â†’ logistics)
 - Infer: Vietnamese context from schema naming or explicit config
 
 ### 2. Intelligent Generation Strategy Selection
 - Per-field strategy assignment:
   - **Faker.js / Faker-python** (structured): names, emails, phones, addresses, dates, IDs, UUIDs
   - **Local SLM (Ollama)** (contextual text): product descriptions, customer reviews, support ticket content, Vietnamese address narratives, realistic chat messages
-  - **Statistical distributions**: Gaussian, Pareto, Zipf — matching realistic data shapes
+  - **Statistical distributions**: Gaussian, Pareto, Zipf â€” matching realistic data shapes
   - **State machine aware**: order statuses follow realistic transitions (not random assignment)
   - **Time-series aware**: timestamps clustered realistically (business hours, weekends)
   - **Domain rules**: emails match name patterns, phone formats match country, postal codes match regions
 
 ### 3. Vietnamese Data Specialization (Critical Differentiator)
-- Vietnamese full names with correct structure (họ + đệm + tên): Nguyễn Thị Bích Phượng
+- Vietnamese full names with correct structure (há»Ť + Ä‘á»‡m + tĂŞn): Nguyá»…n Thá»‹ BĂ­ch PhÆ°á»Łng
 - Vietnamese phone numbers: 09x, 03x, 07x, 08x formats
-- Vietnamese addresses: số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố
+- Vietnamese addresses: sá»‘ nhĂ , tĂŞn Ä‘Æ°á»ťng, phÆ°á»ťng/xĂŁ, quáş­n/huyá»‡n, tá»‰nh/thĂ nh phá»‘
 - Vietnamese bank account patterns (Vietcombank, BIDV, Techcombank formats)
 - Vietnamese national ID (CCCD): 12-digit format
 - Vietnamese business names and tax codes
@@ -56,14 +56,14 @@ You are the **vibe-mock-data-generator-agent** — the difference between test d
 - Realistic Vietnamese text content via Ollama llama3 model
 
 ### 4. Referential Integrity Engine
-- Topological sort of entity dependency graph → correct seed order
+- Topological sort of entity dependency graph â†’ correct seed order
 - Foreign key resolution: always point to an existing generated record
 - Many-to-many junction tables: generated after both parent tables
 - Self-referential relations (e.g., employee.manager_id): handled with careful ordering
 - Polymorphic relations: correctly typed discriminator columns
 
 ### 5. Realistic Distribution Engine
-- **User activity distribution**: Pareto (80/20) — 20% of users make 80% of purchases
+- **User activity distribution**: Pareto (80/20) â€” 20% of users make 80% of purchases
 - **Temporal distribution**: Poisson process for event timing, business-hours clustering
 - **Status distributions**: configurable ratios (e.g., 70% completed, 15% pending, 10% cancelled, 5% refunded)
 - **Text length distribution**: normally distributed around realistic mean (product names: 20-60 chars)
@@ -82,11 +82,12 @@ You are the **vibe-mock-data-generator-agent** — the difference between test d
 ### 7. Output Modes
 - **Seed script**: TypeScript/JavaScript seed file (for Prisma, TypeORM, Sequelize)
 - **Python seed**: SQLAlchemy/Django management command
-- **SQL INSERT**: portable SQL file for any database
+- **SQL INSERT**: portable SQL file for any relational database
+- **MongoDB seed**: TypeScript seed script using the mongodb Node.js driver
 - **JSON fixtures**: structured JSON for use with Jest/Vitest fixtures
 - **CSV export**: for Excel/spreadsheet testing or data import testing
 - **Factory functions**: reusable TypeScript/Python factory functions for test suites
-- **Direct database insertion**: connect and seed directly (with rollback option)
+- **Direct database insertion**: connect and seed directly (with rollback option) for PostgreSQL, MySQL, SQLite, and MongoDB
 
 ### 8. Self-Learning Knowledge Update
 - Weekly crawl: new Faker.js locales, new data generation techniques
@@ -95,114 +96,118 @@ You are the **vibe-mock-data-generator-agent** — the difference between test d
 
 ---
 
-## 📁 Project File Map
+## đź“پ Project File Map
 
-```
+`
 vibe-mock-data-generator-agent/
-├── CLAUDE.md                               ← You are here
-├── PROJECT-detail.md                       ← Full technical specification
-├── PROJECT-DEVELOPMENT-PHASE-TRACKING.md   ← Sprint tracker
-├── SECOND-KNOWLEDGE-BRAIN.md               ← Data generation knowledge base
-│
-├── src/
-│   ├── agents/
-│   │   ├── orchestrator.ts                 ← Main pipeline coordinator
-│   │   ├── schema-parser/                  ← Multi-format schema ingestion
-│   │   │   ├── prisma-parser.ts
-│   │   │   ├── ddl-parser.ts
-│   │   │   ├── typeorm-parser.ts
-│   │   │   └── jsonschema-parser.ts
-│   │   ├── dependency-resolver/            ← Entity dependency graph + topo sort
-│   │   ├── strategy-planner/               ← Per-field generation strategy assignment
-│   │   ├── data-generator/                 ← Core generation engine
-│   │   │   ├── faker-generator.ts          ← Structured data via Faker.js
-│   │   │   ├── slm-generator.ts            ← Contextual text via Ollama
-│   │   │   ├── distribution-engine.ts      ← Statistical distributions
-│   │   │   ├── edge-case-generator.ts      ← Boundary + edge case injection
-│   │   │   └── integrity-validator.ts      ← Post-generation constraint check
-│   │   ├── output-formatter/               ← Format to seed/JSON/CSV/SQL
-│   │   │   ├── prisma-seed-formatter.ts
-│   │   │   ├── sql-formatter.ts
-│   │   │   ├── json-formatter.ts
-│   │   │   ├── csv-formatter.ts
-│   │   │   └── factory-formatter.ts
-│   │   └── knowledge-updater/              ← Data pattern crawler
-│   │
-│   ├── ml/
-│   │   ├── ollama-client.ts                ← Ollama local LLM interface
-│   │   ├── text-generator.ts               ← Domain-aware text generation
-│   │   └── vietnamese-generator.ts         ← Vietnamese-specific generation
-│   │
-│   ├── data/
-│   │   ├── vietnamese/
-│   │   │   ├── surnames.json               ← 100+ Vietnamese họ
-│   │   │   ├── given-names-female.json     ← Vietnamese female given names
-│   │   │   ├── given-names-male.json       ← Vietnamese male given names
-│   │   │   ├── middle-names.json           ← Vietnamese middle name particles
-│   │   │   ├── streets.json                ← Vietnamese street names by city
-│   │   │   ├── wards.json                  ← Phường/xã by district
-│   │   │   ├── districts.json              ← Quận/huyện by province
-│   │   │   └── provinces.json              ← All 63 provinces + postal codes
-│   │   ├── domains/
-│   │   │   ├── ecommerce-products.json     ← Vietnamese product names + categories
-│   │   │   ├── restaurant-items.json       ← Vietnamese food items
-│   │   │   ├── hr-job-titles.json          ← Vietnamese job title variations
-│   │   │   └── financial-descriptions.json ← Transaction description templates
-│   │   └── edge-cases/
-│   │       ├── unicode-edge-cases.json
-│   │       └── boundary-values.json
-│   │
-│   ├── templates/
-│   │   ├── seed-scripts/                   ← Generated seed script templates
-│   │   ├── factory-templates/              ← Factory function templates
-│   │   └── config-examples/               ← Example generator config files
-│   │
-│   ├── prompts/
-│   │   ├── domain-detection-prompt.md      ← Detect business domain from schema
-│   │   ├── vietnamese-text-prompt.md       ← Vietnamese content generation
-│   │   └── edge-case-prompt.md             ← Edge case scenario generation
-│   │
-│   └── tools/
-│       ├── llm-client.ts                   ← Anthropic API (for domain analysis)
-│       ├── ollama-client.ts                ← Ollama (for bulk text generation)
-│       └── db-connector.ts                 ← Direct DB seeding (optional)
-│
-├── tests/
-│   ├── fixtures/
-│   │   ├── schemas/                        ← Test schema files (various formats)
-│   │   └── expected-outputs/               ← Expected generation outputs
-│   └── unit/ integration/
-│
-├── .env.example
-└── package.json
-```
+â”śâ€€â€€ CLAUDE.md                               â†? You are here
+â”śâ€€â€€ PROJECT-detail.md                       â†? Full technical specification
+â”śâ€€â€€ PROJECT-DEVELOPMENT-PHASE-TRACKING.md   â†? Sprint tracker
+â”śâ€€â€€ SECOND-KNOWLEDGE-BRAIN.md               â†? Data generation knowledge base
+â”‚
+â”śâ€€â€€ src/
+â”‚   â”śâ€€â€€ agents/
+â”‚   â”‚   â”śâ€€â€€ orchestrator.ts                 â†? Main pipeline coordinator
+â”‚   â”‚   â”śâ€€â€€ schema-parser/                  â†? Multi-format schema ingestion
+â”‚   â”‚   â”‚   â”śâ€€â€€ prisma-parser.ts
+â”‚   â”‚   â”‚   â”śâ€€â€€ ddl-parser.ts
+â”‚   â”‚   â”‚   â”śâ€€â€€ typeorm-parser.ts
+â”‚   â”‚   â”‚   â””â€€â€€ jsonschema-parser.ts
+â”‚   â”‚   â”śâ€€â€€ dependency-resolver/            â†? Entity dependency graph + topo sort
+â”‚   â”‚   â”śâ€€â€€ strategy-planner/               â†? Per-field generation strategy assignment
+â”‚   â”‚   â”śâ€€â€€ data-generator/                 â†? Core generation engine
+â”‚   â”‚   â”‚   â”śâ€€â€€ faker-generator.ts          â†? Structured data via Faker.js
+â”‚   â”‚   â”‚   â”śâ€€â€€ slm-generator.ts            â†? Contextual text via Ollama
+â”‚   â”‚   â”‚   â”śâ€€â€€ distribution-engine.ts      â†? Statistical distributions
+â”‚   â”‚   â”‚   â”śâ€€â€€ edge-case-generator.ts      â†? Boundary + edge case injection
+â”‚   â”‚   â”‚   â””â€€â€€ integrity-validator.ts      â†? Post-generation constraint check
+â”‚   â”‚   â”śâ€€â€€ output-formatter/               â†? Format to seed/JSON/CSV/SQL/MongoDB
+â”‚   â”‚   â”‚   â”śâ€€â€€ prisma-seed-formatter.ts
+â”‚   â”‚   â”‚   â”śâ€€â€€ sql-formatter.ts
+â”‚   â”‚   â”‚   â”śâ€€â€€ json-formatter.ts
+â”‚   â”‚   â”‚   â”śâ€€â€€ csv-formatter.ts
+â”‚   â”‚   â”‚   â”śâ€€â€€ factory-formatter.ts
+â”‚   â”‚   â”‚   â””â€€â€€ mongodb-formatter.ts          â†? MongoDB seed script
+â”‚   â”‚   â””â€€â€€ knowledge-updater/              â†? Data pattern crawler
+â”‚   â”‚
+â”‚   â”śâ€€â€€ ml/
+â”‚   â”‚   â”śâ€€â€€ ollama-client.ts                â†? Ollama local LLM interface
+â”‚   â”‚   â”śâ€€â€€ text-generator.ts               â†? Domain-aware text generation
+â”‚   â”‚   â””â€€â€€ vietnamese-generator.ts         â†? Vietnamese-specific generation
+â”‚   â”‚
+â”‚   â”śâ€€â€€ data/
+â”‚   â”‚   â”śâ€€â€€ vietnamese/
+â”‚   â”‚   â”‚   â”śâ€€â€€ surnames.json               â†? 100+ Vietnamese há»Ť
+â”‚   â”‚   â”‚   â”śâ€€â€€ given-names-female.json     â†? Vietnamese female given names
+â”‚   â”‚   â”‚   â”śâ€€â€€ given-names-male.json       â†? Vietnamese male given names
+â”‚   â”‚   â”‚   â”śâ€€â€€ middle-names.json           â†? Vietnamese middle name particles
+â”‚   â”‚   â”‚   â”śâ€€â€€ streets.json                â†? Vietnamese street names by city
+â”‚   â”‚   â”‚   â”śâ€€â€€ wards.json                  â†? PhÆ°á»ťng/xĂŁ by district
+â”‚   â”‚   â”‚   â”śâ€€â€€ districts.json              â†? Quáş­n/huyá»‡n by province
+â”‚   â”‚   â”‚   â””â€€â€€ provinces.json              â†? All 63 provinces + postal codes
+â”‚   â”‚   â”śâ€€â€€ domains/
+â”‚   â”‚   â”‚   â”śâ€€â€€ ecommerce-products.json     â†? Vietnamese product names + categories
+â”‚   â”‚   â”‚   â”śâ€€â€€ restaurant-items.json       â†? Vietnamese food items
+â”‚   â”‚   â”‚   â”śâ€€â€€ hr-job-titles.json          â†? Vietnamese job title variations
+â”‚   â”‚   â”‚   â””â€€â€€ financial-descriptions.json â†? Transaction description templates
+â”‚   â”‚   â””â€€â€€ edge-cases/
+â”‚   â”‚       â”śâ€€â€€ unicode-edge-cases.json
+â”‚   â”‚       â””â€€â€€ boundary-values.json
+â”‚   â”‚
+â”‚   â”śâ€€â€€ templates/
+â”‚   â”‚   â”śâ€€â€€ seed-scripts/                   â†? Generated seed script templates
+â”‚   â”‚   â”śâ€€â€€ factory-templates/              â†? Factory function templates
+â”‚   â”‚   â””â€€â€€ config-examples/               â†? Example generator config files
+â”‚   â”‚
+â”‚   â”śâ€€â€€ prompts/
+â”‚   â”‚   â”śâ€€â€€ domain-detection-prompt.md      â†? Detect business domain from schema
+â”‚   â”‚   â”śâ€€â€€ vietnamese-text-prompt.md       â†? Vietnamese content generation
+â”‚   â”‚   â””â€€â€€ edge-case-prompt.md             â†? Edge case scenario generation
+â”‚   â”‚
+â”‚   â””â€€â€€ tools/
+â”‚       â”śâ€€â€€ llm-client.ts                   â†? Anthropic API (for domain analysis)
+â”‚       â”śâ€€â€€ ollama-client.ts                â†? Ollama (for bulk text generation)
+â”‚       â””â€€â€€ db-connector.ts                 â†? Direct DB seeding: PostgreSQL / MySQL / SQLite / MongoDB (lazy-loaded)
+â”‚
+â”śâ€€â€€ tests/
+â”‚   â”śâ€€â€€ fixtures/
+â”‚   â”‚   â”śâ€€â€€ schemas/                        â†? Test schema files (various formats)
+â”‚   â”‚   â””â€€â€€ expected-outputs/               â†? Expected generation outputs
+â”‚   â””â€€â€€ unit/ integration/
+â”‚
+â”śâ€€â€€ .env.example
+ââ€€â€€ package.json
+`
 
 ---
 
-## 🔧 Technology Stack
+## đź§§ Technology Stack
 
 | Layer | Technology | Rationale |
 |-------|-----------|-----------|
 | Primary Language | TypeScript (Node.js) | Best ecosystem for Prisma/TypeORM integration |
-| Structured Data | `@faker-js/faker` with `vi` locale | Industry standard, Vietnamese locale support |
-| Contextual Text | Ollama (local) + `llama3.1:8b` | Free, private, fast for bulk Vietnamese text |
-| Schema Parsing (Prisma) | `@prisma/internals` (DMMF) | Official Prisma schema parser |
-| Schema Parsing (DDL) | `pgsql-ast-parser` + `node-sql-parser` | Multi-dialect SQL parsing |
+| Structured Data | @faker-js/faker with i locale | Industry standard, Vietnamese locale support |
+| Contextual Text | Ollama (local) + llama3.1:8b | Free, private, fast for bulk Vietnamese text |
+| Schema Parsing (Prisma) | @prisma/internals (DMMF) | Official Prisma schema parser |
+| Schema Parsing (DDL) | pgsql-ast-parser + 
+ode-sql-parser | Multi-dialect SQL parsing |
+| Schema Parsing (MongoDB) | JSON Schema definitions | Mongoose/JSON Schema → NormalizedSchema |
 | Graph Algorithm | Custom topological sort (Kahn's algorithm) | Dependency resolution |
-| Statistical Distributions | `jstat` or custom implementations | Pareto, Gaussian, Poisson |
-| Output — Seed Scripts | Template literals + `prettier` formatting | Clean, formatted output |
-| Output — CSV | `csv-stringify` | RFC 4180 compliant CSV |
+| Statistical Distributions | jstat or custom implementations | Pareto, Gaussian, Poisson |
+| Output — Seed Scripts | Template literals + prettier formatting | Clean, formatted output |
+| Output — CSV | csv-stringify | RFC 4180 compliant CSV |
+| Output — MongoDB | mongodb driver | Node.js MongoDB driver for seeding |
 | Config Format | YAML + Zod validation | Human-readable generator config |
-| DB Connection (optional) | `pg`, `mysql2`, `better-sqlite3` | Direct seeding |
+| DB Connection (optional) | pg, mysql2, etter-sqlite3, mongodb | Direct seeding (all lazy-loaded) |
 
 ---
 
-## 🤖 ML/DL Strategy — Hybrid: Faker + Local SLM + Rules
+## đź¤– ML/DL Strategy — Hybrid: Faker + Local SLM + Rules
 
 ### The Three-Tier Generation Hierarchy
 
 **Tier 1: Faker.js (80% of fields) — fast, structured, deterministic-ish**
-```typescript
+`	ypescript
 // For all structured data
 {
   id: faker.string.uuid(),
@@ -211,20 +216,20 @@ vibe-mock-data-generator-agent/
   created_at: faker.date.between({ from: '2023-01-01', to: '2024-12-31' }),
   price: faker.number.float({ min: 10000, max: 5000000, fractionDigits: 0 }),
 }
-```
+`
 
 **Tier 2: Local SLM via Ollama (15% of fields) — contextual, realistic text**
-```typescript
+`	ypescript
 // Only for fields requiring human-readable, contextual content
 // product.description, review.content, ticket.message, address.notes
 const productDesc = await ollamaGenerate(
-  `Write a realistic Vietnamese e-commerce product description for: ${productName}. 
-   2-3 sentences. Natural language, no markdown.`
+  Write a realistic Vietnamese e-commerce product description for: . 
+   2-3 sentences. Natural language, no markdown.
 );
-```
+`
 
 **Tier 3: Domain Rules + Statistical Distributions (5% of logic)**
-```typescript
+`	ypescript
 // Status fields follow business logic, not random assignment
 const orderStatus = weightedRandom({
   'completed': 0.65,
@@ -233,13 +238,13 @@ const orderStatus = weightedRandom({
   'cancelled': 0.07,
   'refunded': 0.03,
 });
-```
+`
 
 ### Why Local Ollama (NOT Claude API) for Bulk Text
 
 The key cost calculation:
-- 10,000 product descriptions via Claude API: ~2M tokens → ~$6 USD
-- 10,000 product descriptions via Ollama (llama3.1:8b local): ~$0.00
+- 10,000 product descriptions via Claude API: ~2M tokens â†’ ~ USD
+- 10,000 product descriptions via Ollama (llama3.1:8b local): ~.00
 
 For test data generation at scale, local SLM is the correct choice. Claude API is used only for:
 - Schema analysis and domain detection (one-time, small tokens)
@@ -247,15 +252,15 @@ For test data generation at scale, local SLM is the correct choice. Claude API i
 - Complex relationship logic reasoning (one-time, small tokens)
 
 ### HuggingFace Models (Optional Enhancement)
-- `vinai/phobert-base-v2` — for detecting Vietnamese context in schema field names
-- `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` — for semantic similarity when clustering generated text to avoid repetitive content
+- inai/phobert-base-v2 — for detecting Vietnamese context in schema field names
+- sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 — for semantic similarity when clustering generated text to avoid repetitive content
 
 ---
 
-## 📋 Core Prompts
+## đź“‹ Core Prompts
 
 ### Domain Detection Prompt (Claude API — one-time)
-```
+`
 Analyze this database schema and determine:
 1. Business domain (e-commerce, healthcare, logistics, fintech, social, education, etc.)
 2. Geographic market (Vietnam, global, US, etc.) — infer from field names and enums
@@ -266,10 +271,10 @@ Schema:
 {schema_text}
 
 Output as JSON: { domain, market, tables: [{name, purpose, hints}] }
-```
+`
 
 ### Vietnamese Text Generation (Ollama — bulk)
-```
+`
 {domain_context}
 
 Generate realistic Vietnamese {content_type} for: {entity_description}
@@ -278,38 +283,39 @@ Requirements:
 - {length_constraint}
 - {tone}: {tone_description}
 - Do not use markdown or HTML
-- Do not start with "Đây là" or "Chào"
+- Do not start with "ÄĂ˘y lĂ " or "ChĂ o"
 
 Output: just the text, nothing else.
-```
+`
 
 ---
 
-## ⚙️ Agent Behavioral Rules
+## âš™ď¸Ź Agent Behavioral Rules
 
-1. **Referential integrity is non-negotiable** — never generate a record with a foreign key that doesn't point to an existing record. The dependency graph determines seed order.
-2. **Quantity implies realism** — generating 5 records: Faker is fine. Generating 10,000 records: statistical distributions must match real-world patterns.
-3. **Ollama is lazy-loaded** — only start Ollama process if the schema actually requires contextual text. Don't penalize users with plain schemas.
-4. **Seed is idempotent by default** — generated seed scripts use upsert operations, not blind inserts. Running seed twice doesn't duplicate data.
-5. **Vietnamese by default for VN context** — if schema contains Vietnamese field hints (phường, quận, CCCD, etc.) or explicit `market: "vietnam"` config, switch to Vietnamese data generation.
-6. **Edge cases are always injected** — every generated dataset includes at least 5% edge case records unless `edgeCases: false` is explicitly set.
-7. **Never generate real PII patterns** — generated data must clearly be fake (email domains are `example.com`, phone numbers follow fake patterns that don't pass carrier lookup).
-8. **Deterministic with seed** — provide a `--seed 42` option that makes all generation reproducible for CI/CD use.
+1. **Referential integrity is non-negotiable** â€” never generate a record with a foreign key that doesn't point to an existing record. The dependency graph determines seed order.
+2. **Quantity implies realism** â€” generating 5 records: Faker is fine. Generating 10,000 records: statistical distributions must match real-world patterns.
+3. **Ollama is lazy-loaded** â€” only start Ollama process if the schema actually requires contextual text. Don't penalize users with plain schemas.
+4. **Seed is idempotent by default** â€” generated seed scripts use upsert operations, not blind inserts. Running seed twice doesn't duplicate data.
+5. **Vietnamese by default for VN context** â€” if schema contains Vietnamese field hints (phÆ°á»ťng, quáş­n, CCCD, etc.) or explicit market: "vietnam" config, switch to Vietnamese data generation.
+6. **Edge cases are always injected** â€” every generated dataset includes at least 5% edge case records unless edgeCases: false is explicitly set.
+7. **Never generate real PII patterns** â€” generated data must clearly be fake (email domains are example.com, phone numbers follow fake patterns that don't pass carrier lookup).
+8. **Deterministic with seed** â€” provide a --seed 42 option that makes all generation reproducible for CI/CD use.
+9. **NoSQL databases need referential integrity too** â€” MongoDB collections with references must resolve to existing documents, even without database-level FK constraints.
 
 ---
 
-## 📌 Generator Config Format
+## đź“Ś Generator Config Format
 
-```yaml
+`yaml
 # mock-data.config.yaml
 version: "1.0"
 
 schema:
-  type: prisma          # prisma | sql | typeorm | json-schema
+  type: prisma          # prisma | sql | typeorm | json-schema | mongodb
   path: ./prisma/schema.prisma
 
 output:
-  format: [prisma-seed, json]    # prisma-seed | sql | json | csv | factory
+  format: [prisma-seed, json, mongodb]    # prisma-seed | sql | json | csv | factory | mongodb
   directory: ./tests/fixtures
 
 generation:
@@ -370,15 +376,15 @@ ollama:
   host: http://localhost:11434
   model: llama3.1:8b
   fallback: faker       # Fall back to Faker if Ollama unavailable
-```
+`
 
 ---
 
-## 🔒 Privacy & Safety
+## đź”’ Privacy & Safety
 
 - Generated data must never match real person data patterns (name + DOB + address combinations that could identify real people)
-- Email domains: always `example.com`, `test.vn`, `mockdata.io` — never real domains
+- Email domains: always example.com, 	est.vn, mockdata.io â€” never real domains
 - Phone numbers: use patterns that fail carrier lookup (0900000001-0900099999 reserved range)
 - CCCD/ID numbers: use patterns outside the valid range (e.g., prefix 000-)
 - Bank accounts: use test-mode account numbers (documented by Vietnamese banks for testing)
-- No generated data should be used in production — `@generated-mock-data` comment in all output files
+- No generated data should be used in production â€” @generated-mock-data comment in all output files
