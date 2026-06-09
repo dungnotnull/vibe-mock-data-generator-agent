@@ -1,0 +1,20 @@
+{
+  "numericBoundary": {
+    "zero": 0,
+    "one": 1,
+    "maxInt32": 2147483647,
+    "maxVND": 999999999999,
+    "minVND": 1000
+  },
+  "stringBoundary": {
+    "empty": "",
+    "singleChar": "a",
+    "whitespace": "   "
+  },
+  "dateBoundary": {
+    "epoch": "1970-01-01T00:00:00.000Z",
+    "y2k": "2000-01-01T00:00:00.000Z",
+    "farFuture": "2099-12-31T23:59:59.999Z",
+    "leapDay": "2024-02-29T00:00:00.000Z"
+  }
+}

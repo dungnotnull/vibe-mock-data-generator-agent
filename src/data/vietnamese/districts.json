@@ -1,0 +1,92 @@
+[
+  {
+    "code": "760",
+    "provinceCode": "79",
+    "name": "Quận 1",
+    "type": "Quận"
+  },
+  {
+    "code": "766",
+    "provinceCode": "79",
+    "name": "Quận 3",
+    "type": "Quận"
+  },
+  {
+    "code": "774",
+    "provinceCode": "79",
+    "name": "Quận 7",
+    "type": "Quận"
+  },
+  {
+    "code": "760a",
+    "provinceCode": "79",
+    "name": "Bình Thạnh",
+    "type": "Quận"
+  },
+  {
+    "code": "760b",
+    "provinceCode": "79",
+    "name": "Gò Vấp",
+    "type": "Quận"
+  },
+  {
+    "code": "760c",
+    "provinceCode": "79",
+    "name": "Phú Nhuận",
+    "type": "Quận"
+  },
+  {
+    "code": "760d",
+    "provinceCode": "79",
+    "name": "Tân Bình",
+    "type": "Quận"
+  },
+  {
+    "code": "760e",
+    "provinceCode": "79",
+    "name": "Tân Phú",
+    "type": "Quận"
+  },
+  {
+    "code": "1001",
+    "provinceCode": "01",
+    "name": "Quận Ba Đình",
+    "type": "Quận"
+  },
+  {
+    "code": "1002",
+    "provinceCode": "01",
+    "name": "Quận Hoàn Kiếm",
+    "type": "Quận"
+  },
+  {
+    "code": "1003",
+    "provinceCode": "01",
+    "name": "Quận Đống Đa",
+    "type": "Quận"
+  },
+  {
+    "code": "1004",
+    "provinceCode": "01",
+    "name": "Quận Cầu Giấy",
+    "type": "Quận"
+  },
+  {
+    "code": "1005",
+    "provinceCode": "01",
+    "name": "Quận Thanh Xuân",
+    "type": "Quận"
+  },
+  {
+    "code": "2001",
+    "provinceCode": "48",
+    "name": "Quận Hải Châu",
+    "type": "Quận"
+  },
+  {
+    "code": "2002",
+    "provinceCode": "48",
+    "name": "Quận Thanh Khê",
+    "type": "Quận"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "code": "76001",
+    "districtCode": "760",
+    "name": "Phường Bến Nghé",
+    "type": "Phường",
+    "postalCode": "700000"
+  },
+  {
+    "code": "76002",
+    "districtCode": "760",
+    "name": "Phường Bến Thành",
+    "type": "Phường",
+    "postalCode": "700001"
+  },
+  {
+    "code": "76601",
+    "districtCode": "766",
+    "name": "Phường Võ Thị Sáu",
+    "type": "Phường",
+    "postalCode": "700100"
+  },
+  {
+    "code": "760a01",
+    "districtCode": "760a",
+    "name": "Phường 1",
+    "type": "Phường",
+    "postalCode": "700400"
+  },
+  {
+    "code": "100101",
+    "districtCode": "1001",
+    "name": "Phường Phúc Xá",
+    "type": "Phường",
+    "postalCode": "100000"
+  },
+  {
+    "code": "100201",
+    "districtCode": "1002",
+    "name": "Phường Hàng Bạc",
+    "type": "Phường",
+    "postalCode": "100100"
+  },
+  {
+    "code": "100301",
+    "districtCode": "1003",
+    "name": "Phường Cát Linh",
+    "type": "Phường",
+    "postalCode": "100200"
+  },
+  {
+    "code": "200101",
+    "districtCode": "2001",
+    "name": "Phường Thạch Thang",
+    "type": "Phường",
+    "postalCode": "550000"
+  }
+]

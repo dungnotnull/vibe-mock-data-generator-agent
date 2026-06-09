@@ -1,0 +1,62 @@
+[
+  {
+    "title_vi": "Giám đốc điều hành",
+    "title_en": "CEO",
+    "category": "Executive",
+    "level": "C-Suite"
+  },
+  {
+    "title_vi": "Trưởng phòng nhân sự",
+    "title_en": "HR Manager",
+    "category": "HR",
+    "level": "Manager"
+  },
+  {
+    "title_vi": "Chuyên viên tuyển dụng",
+    "title_en": "Recruitment Specialist",
+    "category": "HR",
+    "level": "Specialist"
+  },
+  {
+    "title_vi": "Trưởng phòng kinh doanh",
+    "title_en": "Sales Manager",
+    "category": "Sales",
+    "level": "Manager"
+  },
+  {
+    "title_vi": "Kỹ sư phần mềm",
+    "title_en": "Software Engineer",
+    "category": "IT",
+    "level": "Staff"
+  },
+  {
+    "title_vi": "Kỹ sư phần mềm cao cấp",
+    "title_en": "Senior Software Engineer",
+    "category": "IT",
+    "level": "Senior"
+  },
+  {
+    "title_vi": "Quản lý dự án",
+    "title_en": "Project Manager",
+    "category": "IT",
+    "level": "Manager"
+  },
+  {
+    "title_vi": "Kế toán viên",
+    "title_en": "Accountant",
+    "category": "Finance",
+    "level": "Staff"
+  },
+  {
+    "title_vi": "Chuyên viên marketing",
+    "title_en": "Marketing Specialist",
+    "category": "Marketing",
+    "level": "Specialist"
+  },
+  {
+    "title_vi": "Lễ tân",
+    "title_en": "Receptionist",
+    "category": "Admin",
+    "level": "Staff"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Phở bò tái",
+    "category": "Món nước",
+    "priceRange": {
+      "min": 30000,
+      "max": 65000
+    }
+  },
+  {
+    "name": "Bún chả Hà Nội",
+    "category": "Món nước",
+    "priceRange": {
+      "min": 35000,
+      "max": 70000
+    }
+  },
+  {
+    "name": "Cơm tấm sườn bì chả",
+    "category": "Cơm",
+    "priceRange": {
+      "min": 35000,
+      "max": 70000
+    }
+  },
+  {
+    "name": "Bánh mì thịt nướng",
+    "category": "Bánh mì",
+    "priceRange": {
+      "min": 15000,
+      "max": 35000
+    }
+  },
+  {
+    "name": "Cà phê sữa đá",
+    "category": "Đồ uống",
+    "priceRange": {
+      "min": 12000,
+      "max": 35000
+    }
+  },
+  {
+    "name": "Bún riêu cua",
+    "category": "Món nước",
+    "priceRange": {
+      "min": 30000,
+      "max": 65000
+    }
+  },
+  {
+    "name": "Gỏi cuốn tôm thịt",
+    "category": "Khai vị",
+    "priceRange": {
+      "min": 25000,
+      "max": 50000
+    }
+  },
+  {
+    "name": "Ốc hương xào bơ",
+    "category": "Hải sản",
+    "priceRange": {
+      "min": 50000,
+      "max": 120000
+    }
+  },
+  {
+    "name": "Mì Quảng",
+    "category": "Món nước",
+    "priceRange": {
+      "min": 30000,
+      "max": 60000
+    }
+  },
+  {
+    "name": "Hủ tiếu Nam Vang",
+    "category": "Món nước",
+    "priceRange": {
+      "min": 30000,
+      "max": 65000
+    }
+  }
+]

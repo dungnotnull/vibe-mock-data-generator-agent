@@ -1,0 +1,72 @@
+﻿# vibe-mock-data-generator-agent Configuration Example
+version: "1.0"
+
+schema:
+  type: prisma          # prisma | ddl | typeorm | jsonschema
+  path: ./prisma/schema.prisma
+
+output:
+  formats: [prisma-seed, json]    # prisma-seed | sql | json | csv | factory
+  directory: ./generated
+  prettify: true
+
+generation:
+  seed: 42              # Reproducible output (optional)
+  market: vietnam       # vietnam | global | us | eu
+  language: vi          # vi | en
+  locale: vi-VN
+
+entities:
+  User:
+    count: 500
+    distribution: pareto
+    overrides:
+      email:
+        strategy: faker
+        template: "{{firstName}}.{{lastName}}@example.com"
+      role:
+        strategy: distribution
+        weights:
+          customer: 0.85
+          admin: 0.10
+          moderator: 0.05
+
+  Product:
+    count: 1000
+    overrides:
+      description:
+        strategy: ollama
+        model: llama3.1:8b
+        prompt: "Write a Vietnamese product description for a {category} product named {name}"
+
+  Order:
+    count: 5000
+    overrides:
+      status:
+        strategy: distribution
+        weights:
+          completed: 0.65
+          pending: 0.15
+          processing: 0.10
+          cancelled: 0.07
+          refunded: 0.03
+    temporal:
+      field: created_at
+      distribution: business-hours
+
+edgeCases:
+  enabled: true
+  percentage: 5
+  scenarios:
+    - null-nullable-fields
+    - max-length-strings
+    - boundary-dates
+    - unicode-names
+    - zero-amounts
+
+ollama:
+  host: http://localhost:11434
+  model: llama3.1:8b
+  fallback: faker
+  temperature: 0.8
+  concurrency: 3

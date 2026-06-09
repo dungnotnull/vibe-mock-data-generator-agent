@@ -1,0 +1,42 @@
+[
+  {
+    "template": "Chuyển tiền giao dịch nội bộ",
+    "category": "transfer"
+  },
+  {
+    "template": "Thanh toán hóa đơn điện",
+    "category": "payment"
+  },
+  {
+    "template": "Mua hàng trực tuyến",
+    "category": "purchase"
+  },
+  {
+    "template": "Rút tiền ATM",
+    "category": "withdrawal"
+  },
+  {
+    "template": "Nạp tiền điện thoại",
+    "category": "topup"
+  },
+  {
+    "template": "Lãi tiền gửi tiết kiệm",
+    "category": "interest"
+  },
+  {
+    "template": "Chi trả lương",
+    "category": "salary"
+  },
+  {
+    "template": "Thanh toán QR",
+    "category": "qr_payment"
+  },
+  {
+    "template": "Hoàn tiền đơn hàng",
+    "category": "refund"
+  },
+  {
+    "template": "Phí dịch vụ",
+    "category": "fee"
+  }
+]

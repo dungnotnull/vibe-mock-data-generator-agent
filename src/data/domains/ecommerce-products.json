@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Áo thun nam cotton",
+    "category": "Thời trang",
+    "priceRange": {
+      "min": 50000,
+      "max": 300000
+    }
+  },
+  {
+    "name": "Áo sơ mi nữ công sở",
+    "category": "Thời trang",
+    "priceRange": {
+      "min": 150000,
+      "max": 500000
+    }
+  },
+  {
+    "name": "Quần jeans nam slim",
+    "category": "Thời trang",
+    "priceRange": {
+      "min": 200000,
+      "max": 800000
+    }
+  },
+  {
+    "name": "Váy đầm nữ dạ hội",
+    "category": "Thời trang",
+    "priceRange": {
+      "min": 300000,
+      "max": 2000000
+    }
+  },
+  {
+    "name": "Giày sneaker nam",
+    "category": "Giày dép",
+    "priceRange": {
+      "min": 300000,
+      "max": 3000000
+    }
+  },
+  {
+    "name": "Túi xách nữ da thật",
+    "category": "Phụ kiện",
+    "priceRange": {
+      "min": 500000,
+      "max": 5000000
+    }
+  },
+  {
+    "name": "Đồng hồ thông minh",
+    "category": "Điện tử",
+    "priceRange": {
+      "min": 1000000,
+      "max": 10000000
+    }
+  },
+  {
+    "name": "Điện thoại thông minh",
+    "category": "Điện tử",
+    "priceRange": {
+      "min": 2000000,
+      "max": 30000000
+    }
+  },
+  {
+    "name": "Laptop văn phòng",
+    "category": "Điện tử",
+    "priceRange": {
+      "min": 8000000,
+      "max": 40000000
+    }
+  },
+  {
+    "name": "Tai nghe bluetooth",
+    "category": "Điện tử",
+    "priceRange": {
+      "min": 200000,
+      "max": 5000000
+    }
+  },
+  {
+    "name": "Máy lọc nước gia đình",
+    "category": "Gia dụng",
+    "priceRange": {
+      "min": 2000000,
+      "max": 15000000
+    }
+  },
+  {
+    "name": "Nồi cơm điện",
+    "category": "Gia dụng",
+    "priceRange": {
+      "min": 500000,
+      "max": 3000000
+    }
+  },
+  {
+    "name": "Máy lạnh 1.5 HP",
+    "category": "Gia dụng",
+    "priceRange": {
+      "min": 5000000,
+      "max": 15000000
+    }
+  },
+  {
+    "name": "Sữa rửa mặt",
+    "category": "Làm đẹp",
+    "priceRange": {
+      "min": 50000,
+      "max": 500000
+    }
+  },
+  {
+    "name": "Kem chống nắng",
+    "category": "Làm đẹp",
+    "priceRange": {
+      "min": 80000,
+      "max": 600000
+    }
+  },
+  {
+    "name": "Son môi",
+    "category": "Làm đẹp",
+    "priceRange": {
+      "min": 50000,
+      "max": 1000000
+    }
+  },
+  {
+    "name": "Sách văn học Việt Nam",
+    "category": "Sách",
+    "priceRange": {
+      "min": 30000,
+      "max": 200000
+    }
+  },
+  {
+    "name": "Cà phê rang xay",
+    "category": "Thực phẩm",
+    "priceRange": {
+      "min": 50000,
+      "max": 300000
+    }
+  },
+  {
+    "name": "Trà xanh Thái Nguyên",
+    "category": "Thực phẩm",
+    "priceRange": {
+      "min": 80000,
+      "max": 400000
+    }
+  },
+  {
+    "name": "Gạo thơm jasmine",
+    "category": "Thực phẩm",
+    "priceRange": {
+      "min": 50000,
+      "max": 150000
+    }
+  }
+]

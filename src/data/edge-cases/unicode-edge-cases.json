@@ -1,0 +1,28 @@
+{
+  "unicode": [
+    "Nguyễn Thị ẾƠ",
+    "Đặng Văn Ởng",
+    "José García López",
+    "O'Brien",
+    "test﻿value"
+  ],
+  "boundaryValues": {
+    "zeroAmount": 0,
+    "maxVND": 999999999999,
+    "negativeAmount": -1,
+    "floatTrap": 0.30000000000000004,
+    "emptyString": "",
+    "maxInt": 2147483647,
+    "epochDate": "1970-01-01T00:00:00.000Z",
+    "farFutureDate": "2099-12-31T23:59:59.999Z",
+    "leapYearDate": "2024-02-29T00:00:00.000Z",
+    "yearBoundary": "2024-12-31T23:59:59.999Z"
+  },
+  "sqlInjectionStrings": [
+    "O'Brien",
+    "'; DROP TABLE users;--",
+    "' OR '1'='1",
+    "<script>alert(\"xss\")</script>",
+    "../../etc/passwd"
+  ]
+}

@@ -1,0 +1,38 @@
+﻿# Build
+dist/
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Dependencies
+node_modules/
+
+# Generated output
+generated/
+test-output*/
+test-schema.sql
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Coverage
+coverage/
+
+# Cache
+.tsbuildinfo

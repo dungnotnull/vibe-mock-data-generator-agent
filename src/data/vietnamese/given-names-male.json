@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Anh",
+    "meaning": "hero",
+    "frequency": 8
+  },
+  {
+    "name": "Bình",
+    "meaning": "peace",
+    "frequency": 7
+  },
+  {
+    "name": "Cường",
+    "meaning": "strong",
+    "frequency": 6.5
+  },
+  {
+    "name": "Dũng",
+    "meaning": "brave",
+    "frequency": 6
+  },
+  {
+    "name": "Hùng",
+    "meaning": "strong",
+    "frequency": 5.5
+  },
+  {
+    "name": "Khải",
+    "meaning": "victory",
+    "frequency": 4.5
+  },
+  {
+    "name": "Minh",
+    "meaning": "bright",
+    "frequency": 5
+  },
+  {
+    "name": "Nam",
+    "meaning": "south",
+    "frequency": 4.8
+  },
+  {
+    "name": "Sơn",
+    "meaning": "mountain",
+    "frequency": 4.5
+  },
+  {
+    "name": "Tuấn",
+    "meaning": "handsome",
+    "frequency": 4.2
+  },
+  {
+    "name": "Đức",
+    "meaning": "virtue",
+    "frequency": 3.8
+  },
+  {
+    "name": "Hải",
+    "meaning": "sea",
+    "frequency": 3.5
+  },
+  {
+    "name": "Long",
+    "meaning": "dragon",
+    "frequency": 3.5
+  },
+  {
+    "name": "Thắng",
+    "meaning": "victory",
+    "frequency": 3
+  },
+  {
+    "name": "Trung",
+    "meaning": "loyal",
+    "frequency": 3
+  },
+  {
+    "name": "Việt",
+    "meaning": "Vietnam",
+    "frequency": 2.8
+  },
+  {
+    "name": "Phúc",
+    "meaning": "happiness",
+    "frequency": 2.5
+  },
+  {
+    "name": "Quang",
+    "meaning": "light",
+    "frequency": 2.5
+  },
+  {
+    "name": "Huy",
+    "meaning": "brightness",
+    "frequency": 2
+  },
+  {
+    "name": "Khoa",
+    "meaning": "science",
+    "frequency": 1.8
+  },
+  {
+    "name": "Lâm",
+    "meaning": "forest",
+    "frequency": 1.5
+  },
+  {
+    "name": "Phong",
+    "meaning": "wind",
+    "frequency": 1.3
+  },
+  {
+    "name": "Đạt",
+    "meaning": "achieve",
+    "frequency": 1.2
+  },
+  {
+    "name": "Bảo",
+    "meaning": "treasure",
+    "frequency": 0.9
+  },
+  {
+    "name": "Vinh",
+    "meaning": "glory",
+    "frequency": 0.5
+  }
+]

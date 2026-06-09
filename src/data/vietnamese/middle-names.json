@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Thị",
+    "gender": "female",
+    "frequency": 40,
+    "note": "Most common female middle name"
+  },
+  {
+    "name": "Văn",
+    "gender": "male",
+    "frequency": 35,
+    "note": "Most common male middle name"
+  },
+  {
+    "name": "Minh",
+    "gender": "neutral",
+    "frequency": 5
+  },
+  {
+    "name": "Đức",
+    "gender": "male",
+    "frequency": 3
+  },
+  {
+    "name": "Kim",
+    "gender": "female",
+    "frequency": 2.5
+  },
+  {
+    "name": "Ngọc",
+    "gender": "female",
+    "frequency": 2
+  },
+  {
+    "name": "Thùy",
+    "gender": "female",
+    "frequency": 1.5
+  },
+  {
+    "name": "Bích",
+    "gender": "female",
+    "frequency": 1.5
+  },
+  {
+    "name": "Hữu",
+    "gender": "male",
+    "frequency": 1.5
+  },
+  {
+    "name": "Quang",
+    "gender": "male",
+    "frequency": 1.5
+  },
+  {
+    "name": "Thanh",
+    "gender": "neutral",
+    "frequency": 1.5
+  },
+  {
+    "name": "Xuân",
+    "gender": "neutral",
+    "frequency": 1
+  },
+  {
+    "name": "Hải",
+    "gender": "male",
+    "frequency": 1
+  },
+  {
+    "name": "Trung",
+    "gender": "male",
+    "frequency": 1
+  },
+  {
+    "name": "Công",
+    "gender": "male",
+    "frequency": 0.8
+  },
+  {
+    "name": "Phương",
+    "gender": "neutral",
+    "frequency": 0.8
+  },
+  {
+    "name": "Thúy",
+    "gender": "female",
+    "frequency": 0.8
+  },
+  {
+    "name": "Hoàng",
+    "gender": "male",
+    "frequency": 0.5
+  },
+  {
+    "name": "Như",
+    "gender": "neutral",
+    "frequency": 0.5
+  },
+  {
+    "name": "Anh",
+    "gender": "neutral",
+    "frequency": 0.5
+  }
+]

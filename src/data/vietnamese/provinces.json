@@ -1,0 +1,152 @@
+[
+  {
+    "code": "01",
+    "name": "Hà Nội",
+    "weight": 830,
+    "region": "Red River Delta"
+  },
+  {
+    "code": "79",
+    "name": "Thành phố Hồ Chí Minh",
+    "weight": 930,
+    "region": "Southeast"
+  },
+  {
+    "code": "48",
+    "name": "Đà Nẵng",
+    "weight": 120,
+    "region": "South Central Coast"
+  },
+  {
+    "code": "31",
+    "name": "Hải Phòng",
+    "weight": 210,
+    "region": "Red River Delta"
+  },
+  {
+    "code": "92",
+    "name": "Cần Thơ",
+    "weight": 125,
+    "region": "Mekong Delta"
+  },
+  {
+    "code": "74",
+    "name": "Bình Dương",
+    "weight": 250,
+    "region": "Southeast"
+  },
+  {
+    "code": "75",
+    "name": "Đồng Nai",
+    "weight": 230,
+    "region": "Southeast"
+  },
+  {
+    "code": "27",
+    "name": "Nghệ An",
+    "weight": 185,
+    "region": "North Central Coast"
+  },
+  {
+    "code": "38",
+    "name": "Thanh Hóa",
+    "weight": 175,
+    "region": "North Central Coast"
+  },
+  {
+    "code": "21",
+    "name": "Thái Bình",
+    "weight": 115,
+    "region": "Red River Delta"
+  },
+  {
+    "code": "22",
+    "name": "Hải Dương",
+    "weight": 105,
+    "region": "Red River Delta"
+  },
+  {
+    "code": "24",
+    "name": "Hưng Yên",
+    "weight": 80,
+    "region": "Red River Delta"
+  },
+  {
+    "code": "25",
+    "name": "Vĩnh Phúc",
+    "weight": 85,
+    "region": "Red River Delta"
+  },
+  {
+    "code": "26",
+    "name": "Bắc Ninh",
+    "weight": 95,
+    "region": "Red River Delta"
+  },
+  {
+    "code": "32",
+    "name": "Quảng Ninh",
+    "weight": 90,
+    "region": "Northeast"
+  },
+  {
+    "code": "36",
+    "name": "Thừa Thiên Huế",
+    "weight": 75,
+    "region": "North Central Coast"
+  },
+  {
+    "code": "37",
+    "name": "Quảng Nam",
+    "weight": 85,
+    "region": "South Central Coast"
+  },
+  {
+    "code": "42",
+    "name": "Bình Định",
+    "weight": 95,
+    "region": "South Central Coast"
+  },
+  {
+    "code": "45",
+    "name": "Khánh Hòa",
+    "weight": 85,
+    "region": "South Central Coast"
+  },
+  {
+    "code": "55",
+    "name": "Lâm Đồng",
+    "weight": 85,
+    "region": "Central Highlands"
+  },
+  {
+    "code": "58",
+    "name": "Bà Rịa - Vũng Tàu",
+    "weight": 85,
+    "region": "Southeast"
+  },
+  {
+    "code": "60",
+    "name": "Long An",
+    "weight": 95,
+    "region": "Mekong Delta"
+  },
+  {
+    "code": "67",
+    "name": "Kiên Giang",
+    "weight": 90,
+    "region": "Mekong Delta"
+  },
+  {
+    "code": "66",
+    "name": "An Giang",
+    "weight": 85,
+    "region": "Mekong Delta"
+  },
+  {
+    "code": "65",
+    "name": "Đồng Tháp",
+    "weight": 80,
+    "region": "Mekong Delta"
+  }
+]
