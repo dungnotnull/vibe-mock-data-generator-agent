@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SQL DDL Parser
  * Parses PostgreSQL and MySQL DDL into NormalizedSchema
  * 

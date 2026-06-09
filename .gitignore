@@ -1,4 +1,4 @@
-﻿# Build
+# Build
 dist/
 *.js.map
 *.d.ts

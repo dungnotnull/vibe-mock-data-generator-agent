@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Orchestrator - Main pipeline coordinator
  * Connects all agents: Schema Parser → Dependency Resolver → Strategy Planner → Data Generator → Output Formatter
  *

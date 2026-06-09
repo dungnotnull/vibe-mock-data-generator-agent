@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Distribution Engine — Statistical distributions for realistic data
  * Implements Pareto, Gaussian, Poisson, weighted enum, and temporal distributions
  *

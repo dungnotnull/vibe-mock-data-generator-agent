@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Dependency Resolver
  * Builds entity dependency graph from FK relations and performs topological sort (Kahn's algorithm)
  * Ensures seed order respects all foreign key constraints

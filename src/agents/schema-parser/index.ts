@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Schema Parser - Multi-format schema ingestion
  * Parses Prisma, SQL DDL, TypeORM, and JSON Schema into NormalizedSchema
  */

@@ -1,4 +1,4 @@
-﻿# vibe-mock-data-generator-agent
+# vibe-mock-data-generator-agent
 
 > **Generate realistic, referentially valid test data from database schemas — with Vietnamese data specialization.**
 

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Prisma Schema Parser
  * Uses @prisma/internals DMMF to parse .prisma files into NormalizedSchema
  */

@@ -1,4 +1,4 @@
-﻿# Vietnamese Text Generation Prompts
+# Vietnamese Text Generation Prompts
 # Used by Ollama for contextual Vietnamese content
 
 ## Product Description

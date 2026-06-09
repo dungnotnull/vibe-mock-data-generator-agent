@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Ollama Client - Local SLM interface for contextual text generation
  * Falls back to Faker when Ollama is unavailable
  */

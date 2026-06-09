@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Text Generator — Domain-aware text generation via Ollama
  * Generates product descriptions, reviews, support tickets, etc.
  * Falls back to Faker when Ollama is unavailable.

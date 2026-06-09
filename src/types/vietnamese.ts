@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Vietnamese Data Types — Type definitions for Vietnamese data assets
  */
 

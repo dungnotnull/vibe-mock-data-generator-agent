@@ -1,4 +1,4 @@
-﻿/**
+/**
  * DB Connector — Direct database seeding (optional feature)
  * Supports PostgreSQL, MySQL, SQLite, and MongoDB via their respective drivers.
  * 

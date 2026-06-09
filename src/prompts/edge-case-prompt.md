@@ -1,4 +1,4 @@
-﻿# Edge Case Generation Prompt
+# Edge Case Generation Prompt
 # Used to generate edge case scenarios for specific schema types
 
 Analyze this database schema and suggest edge case test data scenarios.

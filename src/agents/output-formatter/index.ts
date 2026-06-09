@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Output Formatter — index
  * Routes to the appropriate formatter based on output format
  */

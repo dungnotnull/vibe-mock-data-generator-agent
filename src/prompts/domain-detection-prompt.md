@@ -1,4 +1,4 @@
-﻿# Domain Detection Prompt
+# Domain Detection Prompt
 # Used by LLM Client to analyze schema semantics
 
 You are a database schema analyst. Analyze the following database schema and determine:

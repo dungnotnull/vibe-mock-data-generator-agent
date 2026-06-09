@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Integrity Validator - Post-generation constraint verification
  * Ensures all generated data is referentially valid before output
  */

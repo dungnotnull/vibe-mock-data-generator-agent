@@ -1,4 +1,4 @@
-﻿/**
+/**
  * CSV Formatter — RFC 4180 compliant CSV output
  */
 

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Vietnamese Generator - Vietnamese-specific data generation
  * Uses custom JSON data assets for authentic Vietnamese data
  *

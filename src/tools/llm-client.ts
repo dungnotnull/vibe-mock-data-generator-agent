@@ -1,4 +1,4 @@
-﻿/**
+/**
  * LLM Client - Anthropic API wrapper for domain detection
  * Used only for one-time schema analysis (small token usage)
  */

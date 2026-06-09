@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Factory Function Formatter
  * Generates reusable TypeScript factory functions for test suites
  */

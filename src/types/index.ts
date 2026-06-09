@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Core type definitions for vibe-mock-data-generator-agent
  * These types define the entire data flow pipeline:
  * NormalizedSchema → StrategyPlan → GeneratedData → OutputFormat

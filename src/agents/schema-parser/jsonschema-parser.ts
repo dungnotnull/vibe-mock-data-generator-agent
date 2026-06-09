@@ -1,4 +1,4 @@
-﻿/**
+/**
  * JSON Schema Parser
  * Parses JSON Schema definitions into NormalizedSchema
  */

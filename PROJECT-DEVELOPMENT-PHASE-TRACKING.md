@@ -1,4 +1,4 @@
-﻿# PROJECT-DEVELOPMENT-PHASE-TRACKING.md
+# PROJECT-DEVELOPMENT-PHASE-TRACKING.md
 
 **Project**: vibe-mock-data-generator-agent
 **Last Updated**: 2026-06-09

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Faker Generator - Core structured data generation using @faker-js/faker
  * Handles all Faker-based field strategies with unique constraint tracking
  */

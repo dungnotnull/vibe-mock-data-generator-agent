@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * vibe-mock-data-generator-agent
  * Generate realistic, referentially valid test data from database schemas

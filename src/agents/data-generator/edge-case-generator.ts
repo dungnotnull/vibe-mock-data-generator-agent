@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Edge Case Generator — Injects realistic edge cases into generated data
  * Produces boundary values, unicode issues, null values, and constraint-violating data
  *

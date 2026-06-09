@@ -1,4 +1,4 @@
-﻿/**
+/**
  * TypeORM Entity Parser
  * Parses TypeORM entity decorators into NormalizedSchema
  * 

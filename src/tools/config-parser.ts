@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Config Parser - YAML + Zod validation for generator configuration
  * Supports loading from YAML files, JSON files, and programmatic config objects
  */

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Strategy Planner
  * Assigns generation strategy per field based on field name, type, and domain context
  * Determines: faker, ollama, distribution, domain-rule, constant, fk-lookup, auto-increment

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * MongoDB Seed Script Formatter
  * Generates executable TypeScript seed scripts for MongoDB
  * Produces a script that uses the mongodb driver directly for seeding

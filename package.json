@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "vibe-mock-data-generator-agent",
   "version": "1.0.0",
   "description": "Generate realistic, referentially valid test data from database schemas with Vietnamese data specialization",

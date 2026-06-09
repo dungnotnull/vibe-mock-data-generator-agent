@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Data Generator — Orchestrates the core generation engine
  * Combines Faker, Ollama, Distribution, and Edge Case generators
  */

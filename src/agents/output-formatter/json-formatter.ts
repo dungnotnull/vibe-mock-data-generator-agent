@@ -1,4 +1,4 @@
-﻿/**
+/**
  * JSON Fixture Formatter
  * Generates structured JSON for use with Jest/Vitest fixtures
  */

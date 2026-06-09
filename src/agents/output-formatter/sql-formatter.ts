@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SQL INSERT Formatter
  * Generates SQL INSERT statements for any database
  */

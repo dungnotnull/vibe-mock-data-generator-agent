@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Prisma Seed Script Formatter
  * Generates executable TypeScript seed scripts for Prisma
  */
